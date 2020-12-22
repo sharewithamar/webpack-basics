@@ -13,7 +13,8 @@ module.exports = {
     // filename: 'bundle.[contenthash].js', // name, id ( chunk id) -options
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, './dist'),
-    publicPath: '', //'auto dist/'
+    //publicPath: '', //'auto dist/'
+    publicPath: '/static/',
   },
   mode: 'production',
   optimization: {
