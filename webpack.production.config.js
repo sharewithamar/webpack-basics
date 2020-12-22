@@ -4,9 +4,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  entry: './src/index.js',
+  // entry: './src/index.js',
+  entry: {
+    'hello-world': './src/hello-world.js',
+    kiwi: './src/kiwi.js',
+  },
   output: {
-    filename: 'bundle.[contenthash].js',
+    // filename: 'bundle.[contenthash].js', // name, id ( chunk id) -options
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, './dist'),
     publicPath: '', //'auto dist/'
   },
@@ -53,7 +58,8 @@ module.exports = {
   plugins: [
     //new TerserPlugin(), //automatically added in prod
     new MiniCssExtractPlugin({
-      filename: 'styles.[contenthash].css',
+      // filename: 'styles.[contenthash].css',
+      filename: '[name].[contenthash].css',
     }),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [
@@ -62,10 +68,26 @@ module.exports = {
       ],
     }),
     new HtmlWebpackPlugin({
-      title: 'Hello Amar',
+      title: 'Hello world',
       // filename: 'subfolder/custom_filename.html',
-      template: 'src/index.hbs',
-      description: 'Amar Sowra Anira',
+      filename: 'hello-world.html',
+      chunks: ['hello-world'],
+      template: 'src/page-template.hbs',
+      description: 'Hello world',
+
+      /*  meta: {
+        description: 'Some Description',
+      }, */
+    }),
+
+    new HtmlWebpackPlugin({
+      title: 'Hello Kiwi',
+      filename: 'kiwi.html',
+      chunks: ['kiwi'],
+
+      // filename: 'subfolder/custom_filename.html',
+      template: 'src/page-template.hbs',
+      description: 'Kiwi',
 
       /*  meta: {
         description: 'Some Description',
