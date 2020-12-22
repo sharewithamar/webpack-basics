@@ -16,6 +16,12 @@ module.exports = {
     publicPath: '', //'auto dist/'
   },
   mode: 'production',
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 3000, //3kb- >by default 30kb it will create sepearet chunk
+    },
+  },
   module: {
     rules: [
       {
@@ -74,6 +80,7 @@ module.exports = {
       chunks: ['hello-world'],
       template: 'src/page-template.hbs',
       description: 'Hello world',
+      minify: false,
 
       /*  meta: {
         description: 'Some Description',
@@ -88,6 +95,7 @@ module.exports = {
       // filename: 'subfolder/custom_filename.html',
       template: 'src/page-template.hbs',
       description: 'Kiwi',
+      minify: false,
 
       /*  meta: {
         description: 'Some Description',

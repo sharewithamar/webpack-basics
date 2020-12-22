@@ -2,9 +2,12 @@
 //import helloWorld from './components/hello-world-button/hello-world-button.js';
 import HelloWorldButton from './components/hello-world-button/hello-world-button';
 import Heading from './components/heading/heading';
+//import _ from 'lodash';
+import React from 'react';
 //helloWorld();
 const heading = new Heading();
-heading.render();
+//heading.render(_.upperFirst('hello world'));
+heading.render('Hello world');
 
 const helloWorldButton = new HelloWorldButton();
 helloWorldButton.render();

@@ -1,5 +1,6 @@
 import Kiwi from './kiwi.jpg';
 import './kiwi-image.scss';
+
 class KiwiImage {
   render() {
     const img = document.createElement('img');
